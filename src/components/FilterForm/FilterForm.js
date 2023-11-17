@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { FilterInput } from './FilterForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/contactsSlice';
 import { selectFilter } from 'redux/selectors';
+import { Input } from '@chakra-ui/react'
+import { Wrapper } from './FilterForm.styled';
+
 
 export const FilterForm = () => {
   const [value, setValue] = useState('');
@@ -15,9 +17,9 @@ export const FilterForm = () => {
   const savedFilter = useSelector(selectFilter);
 
   return (
-    <div>
+    <Wrapper>
       <p>Find contact by name</p>
-      <FilterInput
+      <Input
         onChange={event => {
           setValue(event.target.value);
         }}
@@ -25,6 +27,6 @@ export const FilterForm = () => {
         placeholder="Find by name"
         value={savedFilter}
       />
-    </div>
+    </Wrapper>
   );
 };

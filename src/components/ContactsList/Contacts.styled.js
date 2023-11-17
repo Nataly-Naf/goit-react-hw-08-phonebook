@@ -1,23 +1,35 @@
 import styled from "styled-components";
 
 export const List = styled.ul`
-margin:0;
+margin-top:10px;
 padding: 0;
 list-style:none;
 
 `
 
 export const ListItem = styled.li`
-margin-bottom: 10px;
+margin-top: 10px;
 padding: 0;
-font-weight: 500;
+font-weight: 400;
+color: #1a202c;
 font-size:18px;
 
+
+`
+export const Number = styled.p`
+margin-top: 10px;
+display:inline;
+padding: 0;
+font-weight: 500;
+color: #1a202c;
+font-size:18px;
 
 
 `
 export const ListBtn = styled.button`
 background-color: lightblue;
+margin-left: 10px;
+
 padding: 0;
 border-radius: 5px;
 width:60px;

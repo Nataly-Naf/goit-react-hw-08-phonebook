@@ -1,8 +1,11 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import * as Yup from 'yup';
-import css from './RegisterForm.module.css';
+import { Input, FormLabel, Box } from '@chakra-ui/react';
+import { RegBtn } from './RegisterForm.styled';
+
+
 
 const initialValues = { username: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -26,54 +29,52 @@ export const RegisterForm = () => {
     resetForm();
   };
   return (
-    <div className={css.formWrapper}>
+    <Box >
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form} autoComplete="off">
-          <label className={css.formLabel} htmlFor="username">
+        <Form  autoComplete="off">
+          <FormLabel  htmlFor="username">
             Username
-            <Field
-              className={css.formInput}
+            <Input
+              
               type="text"
               name="username"
               required
             />
-            <span className={css.error}>
+            <span >
               <ErrorMessage name="username" />
             </span>
-          </label>
-          <label className={css.formLabel} htmlFor="email">
+          </FormLabel>
+          <FormLabel htmlFor="email">
             Email
-            <Field
-              className={css.formInput}
-              type="email"
+            <Input
+                            type="email"
               name="email"
               required
             />
-            <span className={css.error}>
+            <span >
               <ErrorMessage name="email" />
             </span>
-          </label>
-          <label className={css.formLabel} htmlFor="password">
+          </FormLabel>
+          <FormLabel  htmlFor="password">
             Password
-            <Field
-              className={css.formInput}
-              type="password"
+            <Input
+                           type="password"
               name="password"
               required
             />
-            <span className={css.error}>
+            <span >
               <ErrorMessage name="password" />
             </span>
-          </label>
-          <button className={css.formBtn} type="submit">
+          </FormLabel>
+          <RegBtn  type="submit">
             Register
-          </button>
+          </RegBtn>
         </Form>
       </Formik>
-    </div>
+    </Box>
   );
 };

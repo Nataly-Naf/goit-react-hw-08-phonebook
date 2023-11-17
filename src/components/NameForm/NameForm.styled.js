@@ -1,7 +1,9 @@
-import { Field, Form } from "formik";
+import { Field} from "formik";
 import styled from "styled-components";
 
-export const StyledForm = styled(Form)`
+export const StyledForm = styled.form`
+margin-top:50px;
+width:320px;
 margin:0;
 padding: 0;
 display: flex;
