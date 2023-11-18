@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage, Field } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { StyledForm, AddBtn, StyledField} from './NameForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
