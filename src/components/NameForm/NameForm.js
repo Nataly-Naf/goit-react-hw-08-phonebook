@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage, Field } from 'formik';
 import { useState } from 'react';
 import * as Yup from 'yup';
 import { StyledForm, AddBtn} from './NameForm.styled';
@@ -6,7 +6,6 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
-import { Input } from '@chakra-ui/react'
 
 const formSquema = Yup.object().shape({
   name: Yup.string()
@@ -49,7 +48,7 @@ export const NameForm = () => {
         <label>
           {' '}
           Name
-          <Input
+          <Field
             name="name"
             onInput={handleInputChange}
             placeholder="Name"
@@ -60,7 +59,7 @@ export const NameForm = () => {
         <label>
           {' '}
           Number
-          <Input
+          <Field
             name="number"
             onInput={handleInputChange}
             placeholder="number"

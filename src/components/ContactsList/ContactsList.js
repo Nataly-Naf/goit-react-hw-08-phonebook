@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  ListBtn, ListItem, Number } from './Contacts.styled';
 import { deleteContact } from 'redux/operations';
 import { selectFilteredContacts } from 'redux/selectors';
-import { List } from '@chakra-ui/layout';
 
 export const ContactsList = () => {
 
@@ -15,9 +14,8 @@ export const ContactsList = () => {
   // )
   const filteredContacts = useSelector(selectFilteredContacts)
 
-
   return (
-    <List>
+    <ul>
       {filteredContacts.map(contact => {
         return (
                     <ListItem key={contact.id}> 
@@ -28,6 +26,6 @@ export const ContactsList = () => {
             </ListBtn>{' '}
           </ListItem>        );
       })}
-    </List>
+    </ul>
   );
 };

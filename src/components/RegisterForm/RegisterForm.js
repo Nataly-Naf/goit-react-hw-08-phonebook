@@ -1,9 +1,9 @@
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import * as Yup from 'yup';
-import { Input, FormLabel, Box } from '@chakra-ui/react';
-import { RegBtn } from './RegisterForm.styled';
+import {StyledField, StyledForm, RegBtn, StyledLabel } from './RegisterForm.styled';
+ 
 
 
 
@@ -29,17 +29,17 @@ export const RegisterForm = () => {
     resetForm();
   };
   return (
-    <Box >
+    <div >
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <Form  autoComplete="off">
-          <FormLabel  htmlFor="username">
+        <StyledForm  autoComplete="off">
+          <StyledLabel htmlFor="username">
             Username
-            <Input
-              
+            <Field
+             
               type="text"
               name="username"
               required
@@ -47,34 +47,36 @@ export const RegisterForm = () => {
             <span >
               <ErrorMessage name="username" />
             </span>
-          </FormLabel>
-          <FormLabel htmlFor="email">
+          </StyledLabel>
+          <StyledLabel  htmlFor="email">
             Email
-            <Input
-                            type="email"
+            <Field
+              
+              type="email"
               name="email"
               required
             />
             <span >
               <ErrorMessage name="email" />
             </span>
-          </FormLabel>
-          <FormLabel  htmlFor="password">
+          </StyledLabel>
+          <StyledLabel htmlFor="password">
             Password
-            <Input
-                           type="password"
+            <Field
+             
+              type="password"
               name="password"
               required
             />
             <span >
               <ErrorMessage name="password" />
             </span>
-          </FormLabel>
+          </StyledLabel>
           <RegBtn  type="submit">
             Register
           </RegBtn>
-        </Form>
+        </StyledForm>
       </Formik>
-    </Box>
+    </div>
   );
 };
