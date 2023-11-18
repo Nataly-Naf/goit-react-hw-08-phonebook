@@ -1,8 +1,8 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import * as Yup from 'yup';
-import {StyledField, StyledForm, RegBtn, StyledLabel } from './RegisterForm.styled';
+import {StyledForm, RegBtn, StyledLabel } from './RegisterForm.styled';
  
 
 
