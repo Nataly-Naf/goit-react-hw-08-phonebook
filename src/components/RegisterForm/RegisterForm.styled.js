@@ -14,6 +14,8 @@ gap:20px;
 
 export const StyledField = styled(Field)`
 border-radius: 5px;
+margin-left:10px;
+margin-top: 1opx;
 width: 350px;
 margin-left: 10px;
 

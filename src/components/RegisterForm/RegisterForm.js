@@ -2,7 +2,7 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import * as Yup from 'yup';
-import {StyledForm, RegBtn, StyledLabel } from './RegisterForm.styled';
+import {StyledForm, RegBtn, StyledLabel, StyledField } from './RegisterForm.styled';
  
 
 
@@ -38,7 +38,7 @@ export const RegisterForm = () => {
         <StyledForm  autoComplete="off">
           <StyledLabel htmlFor="username">
             Username
-            <Field
+            <StyledField
              
               type="text"
               name="username"
@@ -50,7 +50,7 @@ export const RegisterForm = () => {
           </StyledLabel>
           <StyledLabel  htmlFor="email">
             Email
-            <Field
+            <StyledField
               
               type="email"
               name="email"
@@ -62,7 +62,7 @@ export const RegisterForm = () => {
           </StyledLabel>
           <StyledLabel htmlFor="password">
             Password
-            <Field
+            <StyledField
              
               type="password"
               name="password"

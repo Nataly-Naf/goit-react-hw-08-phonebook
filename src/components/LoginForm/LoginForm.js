@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { Input, FormLabel } from '@chakra-ui/react';
-import { LoginBtn, Form } from './LoginForm.styled';
+import { FormLabel } from '@chakra-ui/react';
+import { LoginBtn, Form, Input } from './LoginForm.styled';
 
 
 export const LoginForm = () => {

@@ -1,7 +1,6 @@
 import { Formik, ErrorMessage, Field } from 'formik';
-import { useState } from 'react';
 import * as Yup from 'yup';
-import { StyledForm, AddBtn} from './NameForm.styled';
+import { StyledForm, AddBtn, StyledField} from './NameForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
@@ -15,15 +14,9 @@ const formSquema = Yup.object().shape({
 });
 export const NameForm = () => {
   const dispatch = useDispatch();
-  // const [value, setValue] = useState(0);
-  // console.log(value);
+ 
   const contacts=useSelector(selectContacts)
 
-
-  // const handleInputChange = evt => {
-  //   const { value, name } = evt.target;
-  //   setValue({ [name]: value.trim() });
-  // };
 
   const handleSubmit = (values, actions) => {
      const isInContacts = contacts.find(({ name }) => name.toLowerCase() === values.name.toLowerCase())
@@ -38,7 +31,7 @@ export const NameForm = () => {
 
   return (
     <Formik
-      initialValues={{ name: '', phone: '' }}
+      initialValues={{ name: '', nimber: '' }}
       validationSchema={formSquema}
       onSubmit={handleSubmit}
     >
@@ -46,9 +39,8 @@ export const NameForm = () => {
         <label>
           {' '}
           Name
-          <Field
+          <StyledField
             name="name"
-            // onInput={handleInputChange}
             placeholder="Name"
           />
           <ErrorMessage name="name" />
@@ -57,9 +49,8 @@ export const NameForm = () => {
         <label>
           {' '}
           Number
-          <Field
+          <StyledField
             name="number"
-            // onInput={handleInputChange}
             placeholder="number"
           />
           <ErrorMessage name="number" />
