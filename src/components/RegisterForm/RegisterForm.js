@@ -2,10 +2,12 @@ import { Formik, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import * as Yup from 'yup';
-import {StyledForm, RegBtn, StyledLabel, StyledField } from './RegisterForm.styled';
- 
-
-
+import {
+  StyledForm,
+  RegBtn,
+  StyledLabel,
+  StyledField,
+} from './RegisterForm.styled';
 
 const initialValues = { username: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -18,7 +20,7 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values)
+    console.log(values);
     dispatch(
       register({
         name: values.username,
@@ -29,52 +31,35 @@ export const RegisterForm = () => {
     resetForm();
   };
   return (
-    <div >
+    <div>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <StyledForm  autoComplete="off">
+        <StyledForm autoComplete="off">
           <StyledLabel htmlFor="username">
             Username
-            <StyledField
-             
-              type="text"
-              name="username"
-              required
-            />
-            <span >
+            <StyledField type="text" name="username" required />
+            <span>
               <ErrorMessage name="username" />
             </span>
           </StyledLabel>
-          <StyledLabel  htmlFor="email">
+          <StyledLabel htmlFor="email">
             Email
-            <StyledField
-              
-              type="email"
-              name="email"
-              required
-            />
-            <span >
+            <StyledField type="email" name="email" required />
+            <span>
               <ErrorMessage name="email" />
             </span>
           </StyledLabel>
           <StyledLabel htmlFor="password">
             Password
-            <StyledField
-             
-              type="password"
-              name="password"
-              required
-            />
-            <span >
+            <StyledField type="password" name="password" required />
+            <span>
               <ErrorMessage name="password" />
             </span>
           </StyledLabel>
-          <RegBtn  type="submit">
-            Register
-          </RegBtn>
+          <RegBtn type="submit">Register</RegBtn>
         </StyledForm>
       </Formik>
     </div>

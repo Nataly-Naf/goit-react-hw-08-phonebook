@@ -1,8 +1,10 @@
 import styled from "styled-components"
 
-import { Field, Form } from "formik";
+import { Field, Form} from "formik";
 
 export const StyledForm = styled(Form)`
+margin-top:50px;
+width:320px;
 margin:0;
 padding: 0;
 display: flex;
@@ -18,7 +20,6 @@ margin-left:10px;
 margin-top: 1opx;
 width: 350px;
 margin-left: 10px;
-
 `
 export const StyledLabel = styled.label`
 margin-right: 0;

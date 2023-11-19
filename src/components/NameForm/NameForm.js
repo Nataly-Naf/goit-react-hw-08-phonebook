@@ -31,7 +31,7 @@ export const NameForm = () => {
 
   return (
     <Formik
-      initialValues={{ name: '', nimber: '' }}
+      initialValues={{ name: '', number: '' }}
       validationSchema={formSquema}
       onSubmit={handleSubmit}
     >
