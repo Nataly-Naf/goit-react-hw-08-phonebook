@@ -1,13 +1,16 @@
-import { Formik, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import * as Yup from 'yup';
 import {
+  StyledInput,
+  ErrorMessageStyled,
+  InputWrapper,
   StyledForm,
   RegBtn,
-  StyledLabel,
-  StyledField,
 } from './RegisterForm.styled';
+
+import { Button } from '@mui/material';
 
 const initialValues = { username: '', email: '', password: '' };
 const schema = Yup.object().shape({
@@ -31,37 +34,30 @@ export const RegisterForm = () => {
     resetForm();
   };
   return (
-    <div>
+    <InputWrapper>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <StyledForm autoComplete="off">
-          <StyledLabel htmlFor="username">
-            Username
-            <StyledField type="text" name="username" required />
-            <span>
-              <ErrorMessage name="username" />
-            </span>
-          </StyledLabel>
-          <StyledLabel htmlFor="email">
-            Email
-            <StyledField type="email" name="email" required />
-            <span>
-              <ErrorMessage name="email" />
-            </span>
-          </StyledLabel>
-          <StyledLabel htmlFor="password">
-            Password
-            <StyledField type="password" name="password" required />
-            <span>
-              <ErrorMessage name="password" />
-            </span>
-          </StyledLabel>
-          <RegBtn type="submit">Register</RegBtn>
-        </StyledForm>
+        {({ dirty, isValid }) => (
+          <StyledForm autoComplete="off">
+            <StyledInput type="text" name="username" placeholder="Username" />
+            <ErrorMessageStyled name="username" component="div" />
+            <StyledInput type="email" name="email" placeholder="Email" />
+            <ErrorMessageStyled name="email" component="div" />
+            <StyledInput
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+            <ErrorMessageStyled name="password" component="div" />
+            <RegBtn type="submit" variant="contained" color="primary">
+              Register
+            </RegBtn>
+          </StyledForm>
+        )}
       </Formik>
-    </div>
+    </InputWrapper>
   );
 };

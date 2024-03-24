@@ -7,7 +7,6 @@ import { FilterForm } from 'components/FilterForm/FilterForm';
 import { NameForm } from 'components/NameForm/NameForm';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 
-
 export default function Contacts() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -26,4 +25,4 @@ export default function Contacts() {
       <ContactsList />
     </div>
   );
-};
+}

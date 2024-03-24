@@ -1,47 +1,62 @@
-import styled from "styled-components"
+import styled from 'styled-components';
+import { Field, Form, ErrorMessage } from 'formik';
+import { Button } from '@mui/material';
 
-import { Field, Form} from "formik";
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+
+  @media (min-width: 1440px) {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 45px;
+  }
+`;
+
+export const StyledInput = styled(Field)`
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  @media (min-width: 1440px) {
+    width: 450px;
+  }
+`;
+
+export const ErrorMessageStyled = styled(ErrorMessage)`
+  color: red;
+`;
 
 export const StyledForm = styled(Form)`
-margin-top:50px;
-width:320px;
-margin:0;
-padding: 0;
-display: flex;
-margin-bottom: 20px;
-flex-direction: column;
-gap:20px;
+  width: 300px;
+  margin: 0 auto;
 
-`
+  @media (min-width: 1440px) {
+    width: 450px;
+    margin: 0 auto;
+  }
+`;
 
-export const StyledField = styled(Field)`
-border-radius: 5px;
-margin-left:10px;
-margin-top: 1opx;
-width: 350px;
-margin-left: 10px;
-`
-export const StyledLabel = styled.label`
-margin-right: 0;
-`
+export const RegBtn = styled(Button)`
+  display: block;
+  margin: 10px auto;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
 
-export const RegBtn = styled.button`
-background-color: lightblue;
-padding: 0;
-border-radius: 5px;
-width:150px;
-height:30px;
-  font-size: 12px;
-  font-weight: 700; 
-  border:none;
-  outline: solid grey 1px;
-  
   &:hover {
- background-color:#3f51b5;
+    background-color: #0d47a1;
   }
 
-`
-
-
-
-
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5);
+  }
+`;
